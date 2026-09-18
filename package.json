@@ -1,0 +1,45 @@
+{
+  "name": "medikiosk",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "concurrently -n \"BACKEND,PATIENT,DOCTOR\" -c \"yellow,blue,magenta\" \"node backend/src/server.js\" \"vite --config apps/patient/vite.config.js\" \"vite --config apps/doctor/vite.config.js\"",
+    "dev:backend": "node backend/src/server.js",
+    "dev:patient": "vite --config apps/patient/vite.config.js",
+    "dev:doctor": "vite --config apps/doctor/vite.config.js",
+    "build": "vite build --config apps/patient/vite.config.js && vite build --config apps/doctor/vite.config.js",
+    "build:patient": "vite build --config apps/patient/vite.config.js",
+    "build:doctor": "vite build --config apps/doctor/vite.config.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "firebase": "^12.19.0",
+    "framer-motion": "^12.4.7",
+    "jsqr": "^1.4.0",
+    "lucide-react": "^0.475.0",
+    "multer": "^1.4.5-lts.1",
+    "qrcode.react": "^4.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.2.0",
+    "sarvamai": "^1.1.10",
+    "tailwind-merge": "^3.0.0",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^10.0.5",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.1.0"
+  }
+}
