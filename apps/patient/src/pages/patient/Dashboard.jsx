@@ -548,18 +548,18 @@ export default function Dashboard() {
         const targetLang = (voiceLanguage || selectedLanguage || 'en-IN').split('-')[0];
         if (targetLang !== 'en') {
           for (let q of matchedCategory.questions) {
-            const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(q.text)}&langpair=en|${targetLang}`);
+            const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(q.text)}`);
             const data = await res.json();
-            if (data.responseData && data.responseData.translatedText) {
-              q.text = data.responseData.translatedText;
+            if (data && data[0] && data[0][0] && data[0][0][0]) {
+              q.text = data[0][0][0];
             }
 
             if (q.options) {
               for (let i = 0; i < q.options.length; i++) {
-                const optRes = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(q.options[i])}&langpair=en|${targetLang}`);
+                const optRes = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(q.options[i])}`);
                 const optData = await optRes.json();
-                if (optData.responseData && optData.responseData.translatedText) {
-                  q.options[i] = optData.responseData.translatedText;
+                if (optData && optData[0] && optData[0][0] && optData[0][0][0]) {
+                  q.options[i] = optData[0][0][0];
                 }
               }
             }

@@ -17,11 +17,9 @@ export async function generateDynamicQuestions({ problemText, languageCode, apiK
 Generate exactly 4 relevant, dynamic follow-up questions to understand their condition better. Do not ask a question if they have already provided the answer in their symptom report.
 
 IMPORTANT LANGUAGE INSTRUCTION:
-You MUST analyze the language of the reported problem text ("${problemText}") and GENERATE ALL QUESTIONS AND OPTIONS STRICTLY IN THAT SAME LANGUAGE. 
-For example, if the reported problem is written in Telugu, you MUST output the JSON with all text in Telugu. 
-If it is in Hindi, use Hindi. If it is in English, use English.
-Also, respect this preferred ISO language code if provided: "${languageCode}". 
-DO NOT default to English unless the patient's text is in English.
+You MUST generate ALL QUESTIONS AND OPTIONS STRICTLY in the language corresponding to this ISO language code: "${languageCode}".
+DO NOT use the language of the problem text if it differs from the requested language code. 
+For example, if the language code is "te-IN" (Telugu), you MUST output the JSON with all text in Telugu, even if the problem text is in English.
 
 IMPORTANT CONTEXT INSTRUCTION:
 The patient's problem already provides context. DO NOT ask questions where the answer is already obvious from the symptom report. For example, if they say "I have stomach pain", DO NOT ask "Where is the pain located?". Focus on new, clarifying follow-ups (e.g. severity, duration, associated symptoms).
