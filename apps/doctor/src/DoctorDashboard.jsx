@@ -724,25 +724,25 @@ export default function DoctorDashboard({
                   {dynamicDashavidha.agni && (
                     <div className="p-2.5 rounded-xl bg-white border border-amber-200 text-xs">
                       <span className="text-[10px] font-bold text-slate-400 uppercase block">AGNI (DIGESTION)</span>
-                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{dynamicDashavidha.agni}</span>
+                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{typeof dynamicDashavidha.agni === 'object' ? dynamicDashavidha.agni?.agniStatus : dynamicDashavidha.agni}</span>
                     </div>
                   )}
                   {dynamicDashavidha.koshta && (
                     <div className="p-2.5 rounded-xl bg-white border border-amber-200 text-xs">
                       <span className="text-[10px] font-bold text-slate-400 uppercase block">KOSHTA (BOWEL)</span>
-                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{dynamicDashavidha.koshta}</span>
+                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{typeof dynamicDashavidha.koshta === 'object' ? dynamicDashavidha.koshta?.koshtaType : dynamicDashavidha.koshta}</span>
                     </div>
                   )}
                   {dynamicDashavidha.sattvaAndNidra && (
                     <div className="p-2.5 rounded-xl bg-white border border-amber-200 text-xs">
                       <span className="text-[10px] font-bold text-slate-400 uppercase block">SATTVA & NIDRA</span>
-                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{dynamicDashavidha.sattvaAndNidra}</span>
+                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{typeof dynamicDashavidha.sattvaAndNidra === 'object' ? dynamicDashavidha.sattvaAndNidra?.mentalResilience : dynamicDashavidha.sattvaAndNidra}</span>
                     </div>
                   )}
                   {dynamicDashavidha.doshaTendency && (
                     <div className="p-2.5 rounded-xl bg-white border border-amber-200 text-xs">
                       <span className="text-[10px] font-bold text-slate-400 uppercase block">DOSHA TENDENCY</span>
-                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{dynamicDashavidha.doshaTendency}</span>
+                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{typeof dynamicDashavidha.doshaTendency === 'object' ? dynamicDashavidha.doshaTendency?.doshaImbalanceTendency : dynamicDashavidha.doshaTendency}</span>
                     </div>
                   )}
                   {dynamicDashavidha.vyayamaShakti && (
