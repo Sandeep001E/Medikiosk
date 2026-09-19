@@ -748,7 +748,7 @@ export default function DoctorDashboard({
                   {dynamicDashavidha.vyayamaShakti && (
                     <div className="p-2.5 rounded-xl bg-white border border-amber-200 text-xs">
                       <span className="text-[10px] font-bold text-slate-400 uppercase block">VYAYAMA (PHYSICAL)</span>
-                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{dynamicDashavidha.vyayamaShakti}</span>
+                      <span className="font-extrabold text-amber-900 block mt-0.5 truncate">{typeof dynamicDashavidha.vyayamaShakti === 'object' ? dynamicDashavidha.vyayamaShakti?.physicalStamina : dynamicDashavidha.vyayamaShakti}</span>
                     </div>
                   )}
                 </div>
